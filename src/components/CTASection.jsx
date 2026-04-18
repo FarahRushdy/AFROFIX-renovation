@@ -1,5 +1,5 @@
 import { useReveal } from '../hooks/useReveal'
-import bgImage from '../assets/project3.png'
+import bgImage from '../assets/opera.jpg'
 
 export default function CTASection() {
   const ref = useReveal()
