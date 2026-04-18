@@ -19,6 +19,59 @@
 
 .hero {
   position: relative;
+  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+  background-image: url("src/assets/hero-img.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  color: var(--color-background);
+
+  .hero-content {
+    width: 60%;
+    padding-left: var(--page-padding);
+    padding-bottom: clamp(1rem, 2.5vw, 40px);
+
+    @media (max-width: 1024px) {
+      width: 75%;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .hero-title {
+    padding-bottom: clamp(1rem, 2.5vw, 20px);
+  }
+
+  .hero-subtitle {
+    color: var(--color-background);
+  }
+
+  .hero-stamps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-right: var(--page-padding);
+    padding-bottom: clamp(1rem, 2.5vw, 40px);
+    margin-left: auto;
+    align-self: flex-end;
+
+    img {
+      height: clamp(48px, 5vw, 80px);
+      width: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
 
   .base,
   .framework,
@@ -26,6 +79,7 @@
     inset-inline: 0;
     margin: 0 auto;
   }
+
 
   .base {
     width: 170px;
