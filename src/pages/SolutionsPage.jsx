@@ -199,12 +199,13 @@ export default function SolutionsPage() {
       <div className="sol-body">
         {filtered.length === 0 ? (
           <p className="sol-empty" ref={resultsRef}>No products found for "{appliedSearch}".</p>
-
         ) : (
           <>
-            <div ref={featuredRef}>
-              <FeaturedProduct product={featured} />
-            </div>
+            {featured && (
+              <div ref={featuredRef}>
+                <FeaturedProduct product={featured} />
+              </div>
+            )}
             {gridProducts.length > 0 && (
               <div className="sol-grid" ref={resultsRef}>
                 {gridProducts.map(p => (
