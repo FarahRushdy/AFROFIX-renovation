@@ -1,5 +1,17 @@
 import { useState, useMemo, useRef, useEffect } from 'react'
-import projects, { projectCategories } from '../data/projects.js'
+import { useProjects } from '../hooks/useProjects'
+
+export const projectCategories = [
+  'All Projects',
+  'Commercial',
+  'Residential',
+  'Healthcare',
+  'Government & Civic',
+  'Hospitality',
+  'Industrial',
+  'Transportation',
+  'Education',
+]
 
 function ProjectCard({ project, onClick }) {
   return (
@@ -17,20 +29,28 @@ function ProjectCard({ project, onClick }) {
 }
 
 export default function ProjectsPage() {
+  const { projects, loading } = useProjects()
   const [activeCategory, setActiveCategory] = useState('All Projects')
   const [featuredIndex, setFeaturedIndex] = useState(0)
-  const [featured, setFeatured] = useState(projects[0])
+  const [featured, setFeatured] = useState(null)
   const heroRef = useRef(null)
   const autoRef = useRef(null)
+
+  useEffect(() => {
+    if (projects.length > 0 && !featured) {
+      setFeatured(projects[0])
+    }
+  }, [projects])
 
   const filtered = useMemo(() =>
     activeCategory === 'All Projects'
       ? projects
       : projects.filter(p => p.category === activeCategory),
-    [activeCategory]
+    [activeCategory, projects]
   )
 
   useEffect(() => {
+    if (projects.length === 0) return
     autoRef.current = setInterval(() => {
       setFeaturedIndex(i => {
         const next = (i + 1) % projects.length
@@ -39,7 +59,7 @@ export default function ProjectsPage() {
       })
     }, 8000)
     return () => clearInterval(autoRef.current)
-  }, [])
+  }, [projects])
 
   function handleCard(project) {
     clearInterval(autoRef.current)
@@ -52,6 +72,8 @@ export default function ProjectsPage() {
       window.scrollTo({ top, behavior: 'smooth' })
     }, 50)
   }
+
+  if (loading) return <main className="proj-page proj-loading"><span className="section-label">Loading projects…</span></main>
 
   return (
     <main className="proj-page">
@@ -69,11 +91,15 @@ export default function ProjectsPage() {
           />
         ))}
         <div className="proj-hero-overlay" />
-        <div className="proj-hero-location">{featured.location}</div>
-        <div className="proj-hero-bottom">
-          <h1 className="proj-hero-title hero-title">{featured.title}</h1>
-          <p className="proj-hero-desc">{featured.description}</p>
-        </div>
+        {featured && (
+          <>
+            <div className="proj-hero-location">{featured.location}</div>
+            <div className="proj-hero-bottom">
+              <h1 className="proj-hero-title hero-title">{featured.title}</h1>
+              <p className="proj-hero-desc">{featured.description}</p>
+            </div>
+          </>
+        )}
       </section>
 
       {/* ── Archive ────────────────────────────────────── */}

@@ -1,6 +1,16 @@
-import { useState, useMemo, useRef } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import products, { categories } from '../data/solutions.js'
+import { useSolutions } from '../hooks/useSolutions'
+
+export const categories = [
+  'All Categories',
+  'Fire Fighting',
+  'HVAC Systems',
+  'Plumbing',
+  'SAM Strut',
+  'Steel Structure Support',
+  'Fixation',
+]
 
 function FeaturedProduct({ product }) {
   return (
@@ -76,6 +86,7 @@ function ProductCard({ product, onClick }) {
 }
 
 export default function SolutionsPage() {
+  const { solutions: products, loading } = useSolutions()
   const [searchParams] = useSearchParams()
   const initialCategory = (() => {
     const cat = searchParams.get('category')
@@ -83,16 +94,21 @@ export default function SolutionsPage() {
   })()
 
   const [activeCategory, setActiveCategory] = useState(initialCategory)
-  const [featured, setFeatured] = useState(() =>
-    initialCategory !== 'All Categories'
-      ? products.find(p => p.category === initialCategory) || products[0]
-      : products[0]
-  )
+  const [featured, setFeatured] = useState(null)
   const [search, setSearch] = useState('')
   const [appliedSearch, setAppliedSearch] = useState('')
 
   const featuredRef = useRef(null)
   const resultsRef = useRef(null)
+
+  useEffect(() => {
+    if (products.length > 0 && !featured) {
+      const initial = initialCategory !== 'All Categories'
+        ? products.find(p => p.category === initialCategory) || products[0]
+        : products[0]
+      setFeatured(initial)
+    }
+  }, [products])
 
   const filtered = useMemo(() => {
     let list = activeCategory === 'All Categories'
@@ -108,7 +124,7 @@ export default function SolutionsPage() {
       )
     }
     return list
-  }, [activeCategory, appliedSearch])
+  }, [activeCategory, appliedSearch, products])
 
   function scrollTo(ref, padding = 0) {
     if (!ref.current) return
@@ -147,7 +163,9 @@ export default function SolutionsPage() {
     setTimeout(() => scrollTo(featuredRef, 24), 50)
   }
 
-  const gridProducts = filtered.filter(p => p.id !== featured.id)
+  const gridProducts = featured ? filtered.filter(p => p.id !== featured.id) : filtered
+
+  if (loading) return <main className="sol-page sol-loading"><span className="section-label">Loading solutions…</span></main>
 
   return (
     <main className="sol-page">

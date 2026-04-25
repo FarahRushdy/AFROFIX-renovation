@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react'
-import projects from '../data/projects'
+import { Link } from 'react-router-dom'
+import { useProjects } from '../hooks/useProjects'
 import { useReveal } from '../hooks/useReveal'
 
 export default function ProjectsSection() {
+  const { projects } = useProjects()
   const revealRef = useReveal()
   const [current, setCurrent] = useState(0)
   const [fading, setFading] = useState(false)
 
   useEffect(() => {
+    if (projects.length === 0) return
     const timer = setInterval(() => advance(c => (c + 1) % projects.length), 6000)
     return () => clearInterval(timer)
-  }, [])
+  }, [projects])
 
   function advance(nextFn) {
     setFading(true)
@@ -21,12 +24,13 @@ export default function ProjectsSection() {
   }
 
   const project = projects[current]
+  if (!project) return null
 
   return (
     <section className="projects-section reveal" ref={revealRef}>
       {projects.map((p, i) => (
         <div
-          key={i}
+          key={p.id}
           className="projects-bg"
           style={{
             backgroundImage: `url(${p.image})`,
@@ -42,11 +46,10 @@ export default function ProjectsSection() {
           {project.title}
         </h2>
         <p className={`projects-subtitle large-body${fading ? ' fade-out' : ' fade-in'}`}>
-          {project.subtitle}
+          {project.description}
         </p>
         <div className="projects-actions">
-          <a href="#project" className="btn-glass">View Project</a>
-          <a href="#projects" className="btn-glass">View All Projects</a>
+          <Link to="/projects" className="btn-glass">View All Projects</Link>
         </div>
       </div>
     </section>
