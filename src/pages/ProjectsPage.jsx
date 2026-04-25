@@ -1,11 +1,9 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import projects, { projectCategories } from '../data/projects.js'
 
-const featured = projects[0]
-
-function ProjectCard({ project }) {
+function ProjectCard({ project, onClick }) {
   return (
-    <div className="proj-card">
+    <button className="proj-card" onClick={() => onClick(project)}>
       <div className="proj-card-img">
         <img src={project.image} alt={project.title} />
       </div>
@@ -14,12 +12,16 @@ function ProjectCard({ project }) {
         <span className="proj-card-location">{project.location}</span>
         <span className="proj-card-title">{project.title}</span>
       </div>
-    </div>
+    </button>
   )
 }
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState('All Projects')
+  const [featuredIndex, setFeaturedIndex] = useState(0)
+  const [featured, setFeatured] = useState(projects[0])
+  const heroRef = useRef(null)
+  const autoRef = useRef(null)
 
   const filtered = useMemo(() =>
     activeCategory === 'All Projects'
@@ -28,14 +30,44 @@ export default function ProjectsPage() {
     [activeCategory]
   )
 
+  useEffect(() => {
+    autoRef.current = setInterval(() => {
+      setFeaturedIndex(i => {
+        const next = (i + 1) % projects.length
+        setFeatured(projects[next])
+        return next
+      })
+    }, 8000)
+    return () => clearInterval(autoRef.current)
+  }, [])
+
+  function handleCard(project) {
+    clearInterval(autoRef.current)
+    setFeaturedIndex(projects.indexOf(project))
+    setFeatured(project)
+    setTimeout(() => {
+      if (!heroRef.current) return
+      const headerHeight = document.querySelector('nav')?.offsetHeight || 70
+      const top = heroRef.current.getBoundingClientRect().top + window.scrollY - headerHeight
+      window.scrollTo({ top, behavior: 'smooth' })
+    }, 50)
+  }
+
   return (
     <main className="proj-page">
 
       {/* ── Hero ───────────────────────────────────────── */}
-      <section
-        className="proj-hero"
-        style={{ backgroundImage: `url(${featured.image})` }}
-      >
+      <section ref={heroRef} className="proj-hero">
+        {projects.map((p, i) => (
+          <div
+            key={p.id}
+            className="proj-hero-bg"
+            style={{
+              backgroundImage: `url(${p.image})`,
+              opacity: i === featuredIndex ? 1 : 0,
+            }}
+          />
+        ))}
         <div className="proj-hero-overlay" />
         <div className="proj-hero-location">{featured.location}</div>
         <div className="proj-hero-bottom">
@@ -69,7 +101,7 @@ export default function ProjectsPage() {
 
         <div className="proj-grid">
           {filtered.map(p => (
-            <ProjectCard key={p.id} project={p} />
+            <ProjectCard key={p.id} project={p} onClick={handleCard} />
           ))}
         </div>
       </section>

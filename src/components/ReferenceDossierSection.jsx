@@ -10,7 +10,7 @@ export default function ReferenceDossierSection() {
           Download our comprehensive reference list to view official referrals from the contractors
           and consultants who have trusted Afrofix for their landmark developments.
         </p>
-        <a href="#reference" className="btn-glass">View Reference List</a>
+        <a href="https://afrofix.com/wp-content/uploads/2023/06/Reference-list-ver22.8.pdf" className="btn-glass" target="_blank" rel="noopener noreferrer">View Reference List</a>
       </div>
     </section>
   )

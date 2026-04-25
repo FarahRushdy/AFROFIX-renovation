@@ -24,7 +24,7 @@ export default function AboutPage() {
               complete pipe support systems, beam clamps, brackets, complete mechanical cladding
               fixation systems, concrete inserts, and steel framing system.
             </p>
-            <a href="#profile" className="btn-glass">View Company Profile</a>
+            <a href="https://afrofix.com/wp-content/uploads/2023/03/AFROFIX-Brochure.pdf" className="btn-glass" target="_blank" rel="noopener noreferrer">View Company Profile</a>
           </div>
 
           {/* Right */}

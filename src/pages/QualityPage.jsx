@@ -27,20 +27,20 @@ const certifications = [
     logo: ULLogo,
     name: 'UL Listed',
     description: 'Underwriters Laboratories listing confirms our fire suppression support components meet the most rigorous North American life-safety standards.',
-    link: '#',
+    link: 'https://afrofix.com/wp-content/uploads/2024/07/download.pdf',
   },
   {
     logo: FMLogo,
     name: 'FM Approved',
     description: 'FM Global Approval is the gold standard in property loss prevention. Our FM Approved products are tested to the world\'s most demanding structural and fire-safety criteria.',
-    link: '#',
+    link: 'https://afrofix.com/wp-content/uploads/2024/07/PR460156coc240709.pdf',
   },
   {
     logo: null,
     name: 'ISO 9001:2015',
     isoText: 'ISO\n9001:2015',
     description: 'Our Quality Management System is certified to ISO 9001:2015, ensuring consistent process control, traceability, and continual improvement across every production stage.',
-    link: '#',
+    link: 'https://afrofix.com/wp-content/uploads/2023/08/ISO-9001-2015-Certificate-Feb-2023.pdf',
   },
 ]
 
@@ -102,7 +102,7 @@ export default function QualityPage() {
                 }
               </div>
               <p className="quality-cert-desc">{cert.description}</p>
-              <a href={cert.link} className="btn-glass quality-cert-btn">View Certificate</a>
+              <a href={cert.link} className="btn-glass quality-cert-btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
             </div>
           ))}
         </div>

@@ -21,7 +21,7 @@ export default function AboutSection() {
           <p className="about-body">
             AFROFIX is MEP Support Systems Manufacturer of the MENA region's most ambitious projects. We provide the precision-engineered support systems that hold together power plants, skyscrapers, and water treatment facilities.
           </p>
-          <a href="#certificates" className="btn-glass about-cta">View Certificates</a>
+          <a href="https://afrofix.com/wp-content/uploads/2023/08/ISO-9001-2015-Certificate-Feb-2023.pdf" className="btn-glass about-cta" target="_blank" rel="noopener noreferrer">View Certificates</a>
         </div>
 
         <div className="about-right">

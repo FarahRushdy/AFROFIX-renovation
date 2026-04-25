@@ -15,8 +15,8 @@ export default function CTASection() {
           choice that will meet their needs.
         </p>
         <div className="cta-actions">
-          <a href="#profile" className="btn-glass">View Company Profile</a>
-          <a href="#references" className="btn-glass">View Reference List</a>
+          <a href="https://afrofix.com/wp-content/uploads/2023/03/AFROFIX-Brochure.pdf" className="btn-glass" target="_blank" rel="noopener noreferrer">View Company Profile</a>
+          <a href="https://afrofix.com/wp-content/uploads/2023/06/Reference-list-ver22.8.pdf" className="btn-glass" target="_blank" rel="noopener noreferrer">View Reference List</a>
         </div>
       </div>
     </section>
