@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
 const SITE_URL = 'https://afrofix.com'
-const DEFAULT_IMAGE = `${SITE_URL}/favicon.png`
+const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`
 
 export default function SEO({ title, description, path = '', image = DEFAULT_IMAGE }) {
   const canonical = `${SITE_URL}${path}`

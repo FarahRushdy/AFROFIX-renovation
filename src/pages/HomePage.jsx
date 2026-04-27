@@ -23,8 +23,8 @@ export default function HomePage() {
           "name": "AFROFIX",
           "description": "Egypt's first manufacturer of MEP pipe support systems including fire fighting, HVAC, plumbing, and SAM strut products. UL Listed and FM Approved.",
           "url": "https://afrofix.com",
-          "logo": "https://afrofix.com/favicon.png",
-          "image": "https://afrofix.com/favicon.png",
+          "logo": "https://afrofix.com/og-image.png",
+          "image": "https://afrofix.com/og-image.png",
           "telephone": ["+20100101290", "+201272522278"],
           "email": "info@afrofix.com",
           "address": {
