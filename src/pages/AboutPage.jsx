@@ -1,3 +1,4 @@
+import SEO from '../components/SEO'
 import ULLogo from '../assets/UL-logo.png'
 import FMLogo from '../assets/FM-logo.png'
 import AfrofixLogo from '../assets/ytlogo.png'
@@ -9,6 +10,11 @@ import ReferenceDossierSection from '../components/ReferenceDossierSection'
 export default function AboutPage() {
   return (
     <main>
+      <SEO
+        title="About AFROFIX — Egypt's MEP Support Specialist"
+        description="The African Company for Trading & Engineering (AFROFIX) is Egypt's first specialized manufacturer of electro-mechanical support systems for industrial and commercial installations."
+        path="/about"
+      />
       <section className="about-hero">
         <div className="about-hero-inner">
 

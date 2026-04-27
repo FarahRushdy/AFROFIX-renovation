@@ -1,3 +1,4 @@
+import SEO from '../components/SEO'
 import ULLogo from '../assets/UL-logo.png'
 import FMLogo from '../assets/FM-logo.png'
 import BannerImg from '../assets/banner.png'
@@ -47,6 +48,11 @@ const certifications = [
 export default function QualityPage() {
   return (
     <main className="quality-page">
+      <SEO
+        title="Quality & Certifications — UL Listed, FM Approved, ISO 9001"
+        description="AFROFIX holds UL Listing, FM Approval, and ISO 9001:2015 certification ensuring the highest manufacturing standards for MEP pipe support systems."
+        path="/quality"
+      />
 
       {/* ── Hero Banner ──────────────────────────────────────── */}
       <section

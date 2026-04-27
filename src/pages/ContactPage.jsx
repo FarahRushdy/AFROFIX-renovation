@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SEO from '../components/SEO'
 
 const reasons = [
   {
@@ -54,6 +55,11 @@ export default function ContactPage() {
 
   return (
     <main className="contact-page">
+      <SEO
+        title="Contact Us — Get a Quotation"
+        description="Contact AFROFIX at Plot No. 132, 6th Industrial Zone, 6th October City, Egypt. Call +2 0100 1012 905 or email info@afrofix.com."
+        path="/contact"
+      />
 
       {/* ── Why Contact ──────────────────────────────────── */}
       <section className="contact-why">

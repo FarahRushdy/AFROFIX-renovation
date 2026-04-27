@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { useProjects } from '../hooks/useProjects'
+import SEO from '../components/SEO'
 
 export const projectCategories = [
   'All Projects',
@@ -77,6 +78,11 @@ export default function ProjectsPage() {
 
   return (
     <main className="proj-page">
+      <SEO
+        title="Projects — Landmark Installations Across Egypt"
+        description="AFROFIX's track record spans Egypt's landmark projects — Nile City Towers, Cairo Opera House, Cairo Metro, New Alamein City, Central Bank of Egypt and more."
+        path="/projects"
+      />
 
       {/* ── Hero ───────────────────────────────────────── */}
       <section ref={heroRef} className="proj-hero">

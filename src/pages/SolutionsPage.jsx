@@ -1,6 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useSolutions } from '../hooks/useSolutions'
+import SEO from '../components/SEO'
 
 export const categories = [
   'All Categories',
@@ -169,6 +170,11 @@ export default function SolutionsPage() {
 
   return (
     <main className="sol-page">
+      <SEO
+        title="Products & Solutions — MEP Pipe Support Systems"
+        description="Browse AFROFIX's full range of MEP pipe support products: clevis hangers, riser clamps, beam clamps, SAM strut channels, insulation shields and more. UL Listed & FM Approved."
+        path="/solutions"
+      />
       <div className="sol-header">
         <span className="section-label">[1] Our Solutions</span>
         <div className="sol-search-row">
