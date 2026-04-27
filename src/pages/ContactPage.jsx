@@ -63,7 +63,7 @@ export default function ContactPage() {
 
       {/* ── Why Contact ──────────────────────────────────── */}
       <section className="contact-why">
-        <span className="section-label">[1] Why Contact AFROFIX</span>
+        <h1 className="section-label">[1] Why Contact AFROFIX</h1>
         <div className="contact-why-grid">
           {reasons.map((r, i) => (
             <div key={i} className="contact-why-card">

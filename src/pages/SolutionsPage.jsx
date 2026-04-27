@@ -176,7 +176,7 @@ export default function SolutionsPage() {
         path="/solutions"
       />
       <div className="sol-header">
-        <span className="section-label">[1] Our Solutions</span>
+        <h1 className="section-label">[1] Our Solutions</h1>
         <div className="sol-search-row">
           <input
             className="sol-search"
