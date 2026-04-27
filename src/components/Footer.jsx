@@ -89,7 +89,9 @@ export default function Footer() {
           <p className="footer-col-label">Contact</p>
           <div className="footer-contact-item">
             <MapPinIcon />
-            <span>Plot No. 132 – 6th Industrial Zone Extension 6th October City, Egypt</span>
+            <a href="https://maps.google.com/?q=Plot+No.+132+6th+Industrial+Zone+Extension+6th+October+City+Egypt" target="_blank" rel="noopener noreferrer">
+              Plot No. 132 – 6th Industrial Zone Extension 6th October City, Egypt
+            </a>
           </div>
           <div className="footer-contact-item">
             <MailIcon />

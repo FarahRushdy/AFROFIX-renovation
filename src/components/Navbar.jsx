@@ -76,7 +76,9 @@ export default function Navbar() {
           </div>
           <div className="navbar-address">
             <MapPinIcon />
-            Plot No. 132 – 6th Industrial Zone Extension 6th October City, Egypt
+            <a href="https://maps.google.com/?q=Plot+No.+132+6th+Industrial+Zone+Extension+6th+October+City+Egypt" target="_blank" rel="noopener noreferrer">
+              Plot No. 132 – 6th Industrial Zone Extension 6th October City, Egypt
+            </a>
           </div>
         </div>
       </div>
