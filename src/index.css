@@ -599,13 +599,37 @@
   }
 
   /* Responsive breakpoints */
+
+  /* Tablet landscape + large portrait (769–1024px) */
   @media (max-width: 1024px) {
     .navbar-address {
       display: none;
     }
+
+    .navbar-contact-group {
+      gap: 1.25rem;
+    }
+
+    .navbar-topbar-inner {
+      justify-content: center;
+    }
+
+    .navbar-links {
+      gap: 1.5rem;
+    }
+
+    .navbar-link {
+      font-size: 14px;
+    }
+
+    .navbar-contact-btn {
+      width: 140px !important;
+      font-size: 13px;
+    }
   }
 
-  @media (max-width: 768px) {
+  /* Tablet portrait + mobile (≤900px) — switch to hamburger */
+  @media (max-width: 900px) {
     .navbar-topbar {
       display: none;
     }
