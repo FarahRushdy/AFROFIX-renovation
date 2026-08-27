@@ -1,11 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useRef } from 'react'
 
 export function useReveal() {
-  const ref = useRef(null)
+  const observerRef = useRef(null)
 
-  useEffect(() => {
-    const el = ref.current
+  // Callback ref so the observer is (re)attached whenever the node mounts —
+  // including when a component renders null first (async data) and the real
+  // DOM appears on a later render.
+  const ref = useCallback((el) => {
+    observerRef.current?.disconnect()
+    observerRef.current = null
+
     if (!el) return
+
+    if (el.classList.contains('revealed')) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -18,7 +25,7 @@ export function useReveal() {
     )
 
     observer.observe(el)
-    return () => observer.disconnect()
+    observerRef.current = observer
   }, [])
 
   return ref
