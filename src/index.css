@@ -926,6 +926,10 @@
   .customers-section {
     padding: 0 0 var(--section-gap);
     color: var(--color-primary);
+
+    @media (max-width: 768px) {
+      padding-bottom: 0;
+    }
   }
 
   .customers-inner {

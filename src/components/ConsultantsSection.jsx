@@ -10,7 +10,7 @@ export default function ConsultantsSection() {
   return (
     <section className="consultants-section reveal" ref={ref}>
       <div className="consultants-inner">
-        <span className="section-label">[6] Our Consultants List</span>
+        <span className="section-label">[5] Our Consultants List</span>
         <h2 className="consultants-title hero-title">Vetted By The Primary Engineering Houses</h2>
         <div className="consultants-grid">
           {logos.map(logo => (

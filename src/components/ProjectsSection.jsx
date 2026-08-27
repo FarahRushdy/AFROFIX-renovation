@@ -41,7 +41,7 @@ export default function ProjectsSection() {
       <div className="projects-overlay" />
 
       <div className="projects-content">
-        <span className="section-label">[5] Our Projects Archive</span>
+        <span className="section-label">[4] Our Projects Archive</span>
         <h2 className={`projects-title hero-title${fading ? ' fade-out' : ' fade-in'}`}>
           {project.title}
         </h2>

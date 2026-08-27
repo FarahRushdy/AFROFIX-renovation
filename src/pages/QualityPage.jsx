@@ -61,7 +61,7 @@ export default function QualityPage() {
       >
         <div className="quality-hero-overlay" />
         <div className="quality-hero-content">
-          <span className="section-label">[1] Beyond Specification</span>
+          <span className="section-label">Beyond Specification</span>
           <h1 className="hero-title quality-hero-title">
             The Regions' Only Dual-Certified Manufacturer.
           </h1>
@@ -76,7 +76,7 @@ export default function QualityPage() {
 
       {/* ── Quality Protocol ─────────────────────────────────── */}
       <section className="quality-protocol">
-        <span className="section-label">[2] Quality Protocol</span>
+        <span className="section-label">[1] Quality Protocol</span>
         <div className="quality-grid">
           {processCards.map((card, i) => (
             <div key={i} className="quality-card">
@@ -89,7 +89,7 @@ export default function QualityPage() {
 
       {/* ── Certification Vault ──────────────────────────────── */}
       <section className="quality-vault">
-        <span className="section-label">[3] Certification Vault</span>
+        <span className="section-label">[2] Certification Vault</span>
         <h2 className="hero-title quality-vault-title">Global Compliance.</h2>
         <p className="quality-vault-intro">
           In high-stakes infrastructure, compliance is the only metric of success. Our dual UL
