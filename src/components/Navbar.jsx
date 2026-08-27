@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../assets/Logo OG 2.png'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -89,7 +90,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="navbar-logo">
-            <img src="src\assets\Logo OG 2.png" alt="Afrofix icon" />
+            <img src={logo} alt="AFROFIX" />
           </Link>
 
           {/* Desktop links */}
